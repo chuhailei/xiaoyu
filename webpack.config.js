@@ -1,6 +1,7 @@
-var path = require('path');
-var webpack = require('webpack');
-
+const path = require('path');
+const webpack = require('webpack');
+const openBrowserWebpackPlugin = require('open-browser-webpack-plugin');
+const htmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   devtool:'eval-source-map',
   entry:path.resolve(__dirname,'./app/main.js'),
@@ -9,7 +10,7 @@ module.exports = {
     filename:'bundle.js'
   },
   devServer:{
-    contentBase:path.join(__dirname,'dist'),
+    contentBase:path.join(__dirname,'app'),
     inline:true,
   },
   module:{
@@ -24,5 +25,13 @@ module.exports = {
         use:[{loader:"style-loader"},{loader:"css-loader"}]
       }
     ]
-  }
+  },
+  plugins:[
+    new openBrowserWebpackPlugin({url:'http://localhost:8080'}),
+    new htmlWebpackPlugin({
+      title:'xiaoyu',
+      template:'./app/index.html',
+      filename:'index.html'
+    }),
+  ]
 }
