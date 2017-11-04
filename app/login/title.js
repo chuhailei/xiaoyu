@@ -3,7 +3,7 @@ import '../style/member.css';
 function Title({data}){
 
     return (
-        <p className="pd25">{data}</p>
+        <p className="login-title">{data}</p>
     );
 }
 export default Title

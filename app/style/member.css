@@ -1,29 +1,63 @@
-.pd25{padding:15px 25px;color:#ccc}
+/* 内边距 */
+
+.login-title{padding:10px;margin:0;color:rgb(95, 91, 91)}
+/* 外边距 */
+.mg-bt15{margin: 15px 0}
 .box{display: flex;justify-content: space-between}
-.bg-{background: #ffffff}
+/* 字体大小 */
+.f26{font-size: 16px}
+.f30{font-size: 30px;}
+a{color: #000}
+
+.w60{width: 60%}
+/* input */
+.input-sty{background: none;height: 50px;line-height:50px;border: 0;}
+.div-input{  width: 70%; margin: 0 auto; border-bottom: 1px solid #999999;}
+/* select */
+.div-select{width: 700px;margin: 0 auto}
+/* button  */
+.btn{border: 0;display: inline-block;padding: 10px 25px;box-shadow: 0 1px 0 rgba(0,0,0,.05);font-size: 16px;border-radius: 4px;cursor: pointer}
+.btn-default{background: #ffffff;color:#000;border: 1px solid rgb(92, 85, 85)}
+.btn-primary{background: #108ee9;color:#ffffff;}
+/* 水平居中 */
+.tx-center{text-align: center}
+.mg0auto{margin: 0 auto}
+/* 进度 */
+.schedule-wrap{margin: 25px auto}
+.schedule-wrap span{display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: #535353;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 14px;
+  box-shadow: 3px 3px 3px #f5f5f9;    }
+.check-step span{background: #108ee9}
+
 /* head */
-.head{padding: 15px;background: #ffffff;}
-.list{background: #ffffff;margin: 5px auto;padding: 10px;}
+.head{padding: 10px;background: #ffffff;}
+.list{background: #ffffff;margin: 1px auto;padding: 10px;}
 .sub-title {
     color: #888;
-    font-size: 14px;
-    padding: 30px 0 18px 0;
-  }
-  .stepsExample .timeline.am-steps.am-steps-small
-  .am-steps-item.am-steps-custom
-  .am-steps-head-inner > .am-steps-icon {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #d9dff1;
-  }
-  .stepsExample .timeline.am-steps.am-steps-small .am-steps-tail {
-    top: 3px;
-    padding: 0 8px;
-    background-color: transparent;
-  }
-  .sub-title {
-    color: #888;
-    font-size: 14px;
-    padding: 30px 0 18px 0;
-  }
+    font-size: 16px;
+    padding: 0 0 10px 0;border-bottom: 1px solid #888888;
+}
+
+
+/* 记录 */
+.step-wrap{margin: 0;background: #ffffff;padding: 15px;}
+.box-start{display: flex;justify-content: flex-start;}
+.step-left{width: 30px}
+.step-left span{width: 20px;height: 20px;border-radius: 50%;background: #999999;display: inline-block}
+.step-li{padding: 10px 0;border-bottom: 1px dashed #f5f5f9}
+.step-li:before{content: ""; border-left: 1px solid #999999;position: absolute;left: 25px;height: 80px}
+.step-right div:first-child{padding: 5px 0;}
+.step-right div:last-child{padding: 5px 0;font-size: 14px;color: #888888}
+/* picker */
+
+.am-list-item .am-list-line .am-list-extra{flex-basis:40%}
+
+
+
