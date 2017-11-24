@@ -1,0 +1,21 @@
+{
+    "consumption":[
+        {"name":"消费记录","date":"2017-05-09","consumeption":100},
+        {"name":"消费记录","date":"2017-05-09","consumeption":100},
+        {"name":"消费记录","date":"2017-05-09","consumeption":100},
+        {"name":"消费记录","date":"2017-05-09","consumeption":100}
+    ],
+    "recharge":[
+        {"name":"充值记录","date":"2017-05-09","consumeption":100},
+        {"name":"充值记录","date":"2017-05-09","consumeption":100},
+        {"name":"充值记录","date":"2017-05-09","consumeption":100},
+        {"name":"充值记录","date":"2017-05-09","consumeption":100}
+    ],
+    "exchange":[
+        {"name":"兑换记录","date":"2017-05-09","consumeption":100},
+        {"name":"兑换记录","date":"2017-05-09","consumeption":100},
+        {"name":"兑换记录","date":"2017-05-09","consumeption":100},
+        {"name":"兑换记录","date":"2017-05-09","consumeption":100}
+    ]
+    
+}

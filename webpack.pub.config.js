@@ -1,17 +1,17 @@
 const path = require('path');
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
-
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
 
   entry:{
-      app:path.resolve(__dirname,'./app/main.js'),
-      venders:['react','react-dom']
+      app:path.resolve(__dirname,'./app/index.js'),
+      venders:['react','react-dom','antd-mobile','react-router-dom','redux','react-redux']
 
       },
   output:{
     path:path.resolve(__dirname,'./dist'),
-    filename:'[name].js'
+    filename:'[name].[chunkhash:5].js'
   },
 
   module:{
@@ -23,7 +23,18 @@ module.exports = {
       },
       {
         test:/\.css$/,
-        use:[{loader:"style-loader"},{loader:"css-loader"}]
+        use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: ['css-loader']
+          })
+      },
+      {
+        test:/\.(jpe?g|png|gif|svg)$/i,
+        use:[{loader:"url-loader?limit=10000&name=image/[hash:8].[name].[ext]"},{loader:"img-loader"}]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+        loader: 'url-loader?name=fonts/[name].[md5:hash:hex:7].[ext]'
       }
     ]
   },
@@ -35,6 +46,8 @@ module.exports = {
     }),
     new webpack.optimize.CommonsChunkPlugin({name:'venders',filename:'venders.bundle.js'}),
     new webpack.optimize.UglifyJsPlugin(),
-
+      new ExtractTextPlugin({
+        filename: 'css/[name].css'
+      })
   ]
 }

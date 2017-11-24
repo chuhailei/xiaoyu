@@ -1,8 +1,10 @@
 import React,{Component} from 'react';
 import Title from './title';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux'
 import Schedule from './schedule.jsx'
 import {Toast} from 'antd-mobile'
+import {loginPost} from '../../action'
 const status = {
     type:'完成',
     result:1
@@ -14,6 +16,7 @@ class Login extends Component{
             value:'',
             carVal:''
         }
+        
     }
     handleChange(e){
 
@@ -31,11 +34,17 @@ class Login extends Component{
             Toast.info('请输入正确的手机号！');
             return false
         }
-        if(this.state.value && this.state.carVal){
-            this.props.history.push('/Login/result?id=success')
-        }else{
-            this.props.history.push('/Login/result?id=fail')   
-        }
+        const {history} = this.props
+        this.props.dispatch(loginPost({"phone":this.state.value,"carPlate":this.state.carVal},function(data){
+         
+            if(data.kind == 'Listing'){
+                history.push('/Login/result?id=success')
+            }else{
+                history.push('/Login/result?id=fail')   
+            }
+        }))
+        
+
     }
     render(){
         return(
@@ -51,4 +60,4 @@ class Login extends Component{
         )
     }
 }
-export default Login
+export default connect()(Login)

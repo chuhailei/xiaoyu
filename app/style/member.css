@@ -3,7 +3,10 @@
 .login-title{padding:10px;margin:0;color:rgb(95, 91, 91)}
 /* 外边距 */
 .mg-bt15{margin: 15px 0}
-.box{display: flex;justify-content: space-between}
+.box{display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  align-content: space-between;}
 /* 字体大小 */
 .f26{font-size: 16px}
 .f30{font-size: 30px;}
@@ -34,25 +37,57 @@ a{color: #000}
   color: #ffffff;
   font-size: 14px;
   box-shadow: 3px 3px 3px #f5f5f9;    }
-.check-step span{background: #108ee9}
+.check-step span{background: #69a8d4}
 
 /* head */
-.head{padding: 10px;background: #ffffff;}
+.head{padding: 10px;background: #ffffff;position: relative;}
+.head-info{position: absolute;
+  top: 45px;
+  left: 45px;
+  right: 45px;
+  color: #525252;
+  font-size: 14px;
+  bottom: 45px;}
+.h-left{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.h-right{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 .list{background: #ffffff;margin: 1px auto;padding: 10px;}
 .sub-title {
-    color: #888;
-    font-size: 16px;
-    padding: 0 0 10px 0;border-bottom: 1px solid #888888;
+  color: #888;
+  font-size: 16px;
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid #e4e3e3;
 }
-
+.hnew-box{padding: 10px;justify-content: space-around;background: #ffffff}
+.hnew-box div{padding: 5px 0;width: 45%;text-align: center;}
+.hnew-box-left{border-right: 1px solid #e4e3e3}
+.record-li i{margin-right: 8px}
 
 /* 记录 */
 .step-wrap{margin: 0;background: #ffffff;padding: 15px;}
 .box-start{display: flex;justify-content: flex-start;}
 .step-left{width: 30px}
-.step-left span{width: 20px;height: 20px;border-radius: 50%;background: #999999;display: inline-block}
+.step-left span{    width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #999999;
+  display: inline-block;
+  border: 2px solid #ffffff;
+  box-shadow: 1px 1px 2px #8888c3;}
 .step-li{padding: 10px 0;border-bottom: 1px dashed #f5f5f9}
-.step-li:before{content: ""; border-left: 1px solid #999999;position: absolute;left: 25px;height: 80px}
+.step-li:before{content: "";
+  border-left: 1px solid #999999;
+  position: absolute;
+  left: 25px;
+  height: 70px;
+  margin-top: 5px;}
 .step-right div:first-child{padding: 5px 0;}
 .step-right div:last-child{padding: 5px 0;font-size: 14px;color: #888888}
 /* picker */

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../style/member.css';
+import '../../style/member.css';
 function Title({data}){
 
     return (

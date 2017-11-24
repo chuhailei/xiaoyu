@@ -1,18 +1,25 @@
-import React,{Component} from 'react';
+import React,{Component} from 'react'
+import {connect} from 'react-redux'
+import * as action from '../action/index'
+import {bindActionCreators} from 'redux'
 import '../style/member.css'
-const data = [
-    {'name':'预约保养','date':'2017-05-09','consumeption':100},
-    {'name':'预约保养','date':'2017-05-09','consumeption':100},
-    {'name':'预约保养','date':'2017-05-09','consumeption':100},
-    {'name':'预约保养','date':'2017-05-09','consumeption':100}
-]
+import { ActivityIndicator} from 'antd-mobile';
 class Record extends Component{
     constructor(props){
         super(props)
-        console.log(props)
+    }
+    componentWillMount(){     
+  
+        this.props.action.fetchPosts(new URLSearchParams(this.props.location.search).get('id'))
+    }
+    componentWillUpdate(){
+        
     }
     render(){
-        const dataList = data.map((item,key)=>(
+
+        const recordReducer = this.props.state.recordReducer.data;
+        
+        const dataList = recordReducer.map((item,key)=>(
             <div className="box-start step-li" key={key}>
                 <div className="step-left">
                     <span></span>
@@ -25,12 +32,24 @@ class Record extends Component{
                 
         ))
         return(
+                
                 <div className="step-wrap f26">
-                    <div className="sub-title f26">{new URLSearchParams(this.props.location.search).get('types')} 记录</div>
+                    <div className="sub-title f26">{new URLSearchParams(this.props.location.search).get('name')} 记录</div>
                     {dataList}
+                    <ActivityIndicator toast  text="Loading..."   animating={ this.props.state.recordReducer.loading}  />
                 </div>
         )
     }
 }
 
-export default Record
+function mapStateToProps(state){
+    return {
+        state
+    }
+}
+function mapDispatchToProps(dispatch){
+    return {
+        action:bindActionCreators(action,dispatch)
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Record)

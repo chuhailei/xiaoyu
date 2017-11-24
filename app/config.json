@@ -1,4 +1,4 @@
 {
   "say": "Hello World",
-  "list":[{"title":"消费记录","id":"消费"},{"title":"充值记录","id":"充值"},{"title":"兑换记录","id":"兑换"}]
+  "list":[{"title":"消费记录","id":"consumption","name":"消费"},{"title":"充值记录","id":"recharge","name":"充值"},{"title":"兑换记录","id":"exchange","name":"兑换"}]
 }

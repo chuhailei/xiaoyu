@@ -4,7 +4,7 @@ const openBrowserWebpackPlugin = require('open-browser-webpack-plugin');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   devtool:'eval-source-map',
-  entry:path.resolve(__dirname,'./app/main.js'),
+  entry:path.resolve(__dirname,'./app/index.js'),
   output:{
     path:path.resolve(__dirname,'./dist'),
     filename:'bundle.js'
@@ -23,6 +23,14 @@ module.exports = {
       {
         test:/\.css$/,
         use:[{loader:"style-loader"},{loader:"css-loader"}]
+      },
+      {
+        test:/\.(jpe?g|png|gif|svg)$/i,
+        use:[{loader:"url-loader?limit=10000"},{loader:"img-loader"}]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+        loader: 'url-loader?name=fonts/[name].[md5:hash:hex:7].[ext]'
       }
     ]
   },
