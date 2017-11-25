@@ -1,6 +1,7 @@
 
-import {REQUEST_POST,RECEIVE_POST,RECEIVE_RESERVE,USER_POST} from '../action'
+import {REQUEST_POST,RECEIVE_POST,RECEIVE_RESERVE,USER_POST,VICE_POST} from '../action'
 import {combineReducers} from 'redux'
+
 
 const json = [{
     date:"2017-11-9",
@@ -29,6 +30,17 @@ const userInfo = (state = {},action) =>{
     }
 }
 
-const rootReducer = combineReducers({recordReducer,userInfo})
+// 副卡数据
+
+const vice = (state={},action)=>{
+    switch(action.type){
+        case VICE_POST:
+            return action.data
+        default:
+            return state
+    }
+}
+
+const rootReducer = combineReducers({recordReducer,userInfo,vice})
 
 export default rootReducer

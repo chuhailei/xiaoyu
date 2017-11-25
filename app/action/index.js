@@ -2,12 +2,22 @@ import fetch from 'isomorphic-fetch'
 export const REQUEST_POST = 'REQUEST_POST'
 export const RECEIVE_POST = 'RECEIVE_POST'
 export const USER_POST = 'USER_POST'
+export const VICE_POST = 'VICE_POST'
+
+
 import tempJson from '../temJson'
 const memberInfo = {
     name:'layne',
     integral:5000,
     cardNumber:123456798,
     money:5000
+}
+
+const viceCardInfo = {
+    client:'layne',
+    sfz:5000,
+    phone:123456798,
+    carNumber:5000
 }
 // 请求数据
 export function requestPost(status = true){
@@ -27,6 +37,13 @@ export function receivePost(data=[]){
     }
 }
 
+// 绑定副卡获取数据
+export function getViceCardPost(data={}){
+    return {
+        type:VICE_POST,
+        data:data
+    }
+}
 // 请求函数
 export  const fetchPosts = typs =>dispatch=>{
     
@@ -68,14 +85,26 @@ export const reservePost = obj => dispatch => {
 }
 // 返回提交
 export const feebbackPost = obj => dispatch =>{
-    console.log(obj)
+    
 }
 
 // 登录
 export const loginPost = (obj,fn) =>dispatch =>{
-    console.log(obj)
-
+    
     return fetch(`https://www.reddit.com/r/reactjs.json`)
       .then(response => response.json())
       .then(json => fn(json))
+}
+
+// 绑定副卡
+export const bindViceCardInfo = (id,openid) =>dispatch =>{
+    dispatch(getViceCardPost(viceCardInfo))
+}
+
+// 确认绑定副卡
+
+export const bindViceCard = (id,openid) =>dispatch =>{
+    return fetch(`https://www.reddit.com/r/reactjs.json`)
+        .then(response => response.json())
+        .then(json => fn(json))
 }
